@@ -11,12 +11,26 @@ const capitalizeArrow = string => string.charAt(0).toUpperCase() + string.slice(
 
 console.log(`luis said "hello"`)
 
-let Person = {
-    name: "Luis",
-    age: 19,
-    isStudent: true,
+// class
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+// inheritance
+class Student extends Person {
+    constructor(name, age, career) {
+        super(name, age)
+        this.career = career
+    }
 }
 
-for (const key in Person) {
-    console.log(capitalizeArrow(key) + ": " + Person[key]);
+let studentInfo = {}
+
+let studentA = new Student("Luis", 19, "Informatic Engineering")
+
+for (const key in studentA) {
+    console.log(capitalizeArrow(key) + ": " + studentA[key]);
 }
