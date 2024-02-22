@@ -1,1 +1,2 @@
-//document.body.style.backgroundColor = "orangeRed";
+let menu = document.getElementById("menu");
+menu.textContent = "About us";
