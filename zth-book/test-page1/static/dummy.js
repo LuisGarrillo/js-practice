@@ -1,2 +1,4 @@
-//let menu = document.getElementById("menu");
-//menu.textContent = "About us";
+const changeContent = () => {
+    const h4 = document.getElementById("change");
+    h4.textContent = "Changed!"
+}
