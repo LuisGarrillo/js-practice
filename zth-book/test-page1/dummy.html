@@ -9,7 +9,7 @@
     </head>
         
     <body>
-        <h1>Header</h1>
+        <h1 id="header">Header</h1>
         <p>First paragraph.</p>
         <a id="menu" href="dummy.html">Home</a>
 
@@ -28,8 +28,10 @@
             </li>
         </ul>
         <script>
+            const header = document.getElementById("header");
             const heading1 = document.createElement('h1');
             heading1.textContent = "New Element";
+            document.body.insertBefore(heading1, header);
         </script>
     </body>
 </html>
