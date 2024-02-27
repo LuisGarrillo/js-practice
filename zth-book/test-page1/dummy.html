@@ -7,10 +7,31 @@
         <script src="static/dummy.js"></script>
         <title>Dummy page</title>
     </head>
-        <h1>Header</h1>
+        
+    <body>
+        <h1 id="header">Header</h1>
         <p>First paragraph.</p>
         <a id="menu" href="dummy.html">Home</a>
-    <body>
 
+        <ul>
+            <li>
+                first
+            </li>
+            <li>
+                second
+            </li>
+            <li>
+                third
+            </li>
+            <li>
+                fourth
+            </li>
+        </ul>
+        <script>
+            const header = document.getElementById("header");
+            const heading1 = document.createElement('h1');
+            heading1.textContent = "New Element";
+            document.body.insertBefore(heading1, header);
+        </script>
     </body>
 </html>
