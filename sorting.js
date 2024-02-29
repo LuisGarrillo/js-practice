@@ -54,8 +54,29 @@ function bubbleSort(array) {
     if (!Array.isArray(array)) {
         throw new TypeError("bubbleSort only accepts arrays!")
     }
+
+    let sortArray = new Array();
+    sortArray = array;
+
+    for (let i = 0, length = sortArray.length; i < length; i++) {
+        for (let j = i + 1; j < length; j++) {
+            if (sortArray[i] > sortArray[j]) {
+                let aux = sortArray[i];
+                sortArray[i] = sortArray[j];
+                sortArray[j] = aux;
+            }
+        }
+    }
+
+    return sortArray;
 }
 
-console.time();
-console.log(mergeSort([5,2, 6, 14, 89, 0, 9, 2, 1,4,3, 12]));
-console.timeEnd();
+let testArray = Array.from({length: 10000}, () => Math.floor(Math.random() * 10000));
+
+console.time("Merge Sort");
+console.log(mergeSort(testArray));
+console.timeEnd("Merge Sort");
+
+console.time("Bubble Sort");
+console.log(bubbleSort(testArray));
+console.timeEnd("Bubble Sort");
