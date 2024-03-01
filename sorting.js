@@ -1,3 +1,5 @@
+
+
 function mergeSort(array) {
     if (!Array.isArray(array)) {
         throw new TypeError("mergeSort only accepts arrays!"); 
@@ -71,6 +73,8 @@ function bubbleSort(array) {
     return sortArray;
 }
 
+module.exports = { mergeSort };
+/*
 let testArray = Array.from({length: 10000}, () => Math.floor(Math.random() * 10000));
 
 console.time("Merge Sort");
@@ -80,3 +84,4 @@ console.timeEnd("Merge Sort");
 console.time("Bubble Sort");
 console.log(bubbleSort(testArray));
 console.timeEnd("Bubble Sort");
+*/
