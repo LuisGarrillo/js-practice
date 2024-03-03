@@ -7,8 +7,9 @@ function binarySearch(array, value) {
 
     let searchArray = new Array();
     searchArray = array;
-    if (searchArray.length <= 1) {
-        if (searchArray.length == 1 && searchArray[0] == value) {
+    let length = searchArray.length;
+    if (length <= 1) {
+        if (length == 1 && searchArray[0] == value) {
             console.log(value + " found in the list");
             return true;
         }
@@ -17,7 +18,7 @@ function binarySearch(array, value) {
             return false;
         }
     }
-    let halfIndex = Math.ceil(searchArray.length/2);
+    let halfIndex = Math.ceil(length/2);
     
     if (searchArray[halfIndex] < value) {
         binarySearch(searchArray.slice(halfIndex), value);
@@ -47,13 +48,27 @@ function linearSearch(array, value) {
     return true;
 }
 
-let testArray = Array.from({length: 10000000}, () => Math.floor(Math.random() * 10000000));;
-testArray = sort.mergeSort(testArray);
+function testSearch(times, testFunction) {
+    
+    let avg = 0;
+    for (let i = 0; i < times; i++) {
+        let testArray = Array.from({length: 10000}, () => Math.floor(Math.random() * 10000));;
+        testArray = sort.mergeSort(testArray);
 
-console.time("Binary search runtime");
-binarySearch(testArray, 4);
-console.timeEnd("Binary search runtime")
+        const start = performance.now();
+        testFunction(testArray, 45000);
+        const end = performance.now();
+        avg += end - start
+    }
 
-console.time("Linear search runtime");
-linearSearch(testArray, 4);
-console.timeEnd("Linear search runtime")
+    return avg / times
+}
+
+
+
+console.log(testSearch(10, binarySearch) + "ms");
+console.log(testSearch(10, linearSearch) + "ms");
+
+//console.time("Linear search runtime");
+//linearSearch(testArray, 4);
+//console.timeEnd("Linear search runtime")
