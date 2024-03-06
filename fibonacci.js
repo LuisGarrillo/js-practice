@@ -5,7 +5,7 @@ const fibonacci = (length) => {
 
     let sequence = [0, 1];
     for (let i = 0; i < length; i++) {
-        
+        let index = sequence.length;
         sequence.push(sequence[index - 1] + sequence[index - 2]);
     }
     return sequence;
@@ -25,5 +25,3 @@ const fibonacciRecursive = (length, sequence = [0, 1]) => {
         return sequence
     }
 }
-
-console.log(fibonacciRecursive(8))
