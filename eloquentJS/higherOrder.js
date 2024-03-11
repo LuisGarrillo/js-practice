@@ -15,16 +15,24 @@ function loop (value, test, update, body) {
 }
 
 function dominantDirection(text) {
-    // Your code here.
+    // getting the scripts present in the text and filtering the non-existent
     let scripts = countBy(text, (char) => {
+        // function executed in every element of they array
+
+        // the characterScript() function returns an script objet corresponding to the given UTF-16 code
         let script = characterScript(char.charCodeAt(0));
         return script ? script.direction : "none";
     }).filter(({name}) => name !== "none");
-  
+    
+    // checks which count propertiy of the given object is bigger and returns the result
     return scripts.reduce((a, b) => {return a.count > b.count ? a : b}).name;
 }
 
 function every(array, test) {
+    /*
+        Looking for elements that fail the test. If none of them fail, 
+        it means that the every is true.
+    */
     return !array.some((n) => !test(n));
 }
   
