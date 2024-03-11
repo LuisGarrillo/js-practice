@@ -21,6 +21,7 @@ function dominantDirection(text) {
 
         // the characterScript() function returns an script objet corresponding to the given UTF-16 code
         let script = characterScript(char.charCodeAt(0));
+        // if the script is not undefined, returns it's direction as the name value. Else returns none
         return script ? script.direction : "none";
     }).filter(({name}) => name !== "none");
     
