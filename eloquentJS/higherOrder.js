@@ -39,4 +39,3 @@ every = (array, test) => !array.some((n) => !test(n));
 loop(3, n => n > 0, n => n - 1, console.log);
 
 console.log(flatten([[1, 2, 3], [4, 5], [6]]));
-[].som
