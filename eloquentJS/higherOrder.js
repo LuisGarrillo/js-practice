@@ -1,6 +1,5 @@
-function flatten (collection) {
-    return collection.reduce((left, right) => left.concat(right), []);
-}
+flatten = collection => collection.reduce((left, right) => left.concat(right), []);
+
 
 function loop (value, test, update, body) {
     do {
@@ -29,13 +28,12 @@ function dominantDirection(text) {
     return scripts.reduce((a, b) => {return a.count > b.count ? a : b}).name;
 }
 
-function every(array, test) {
-    /*
-        Looking for elements that fail the test. If none of them fail, 
-        it means that the every is true.
-    */
-    return !array.some((n) => !test(n));
-}
+/*
+    Looking for elements that fail the test. If none of them fail, 
+    it means that the every is true.
+*/
+every = (array, test) => !array.some((n) => !test(n));
+
   
   
 loop(3, n => n > 0, n => n - 1, console.log);
